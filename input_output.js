@@ -14,7 +14,7 @@ let input = [];
 
 rl.on('line', function (line) {
     input = line.split(' ');
-  })
+  })  
   .on('close', function () {
     console.log(`${parseInt(input[0]) + parseInt(input[1])}
 ${parseInt(input[0]) - parseInt(input[1])}
