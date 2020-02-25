@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 let result = '';
 
-function validator(num1, num2) {
+function integerValidator(num1, num2) {
     return (num1 >= -10000 
          && num1 <=  10000 
          && num2 >= -10000 
@@ -20,7 +20,7 @@ rl.on('line', line => {
     const input = [];
     input[0] = parseInt(line.split(' ')[0]);
     input[1] = parseInt(line.split(' ')[1]);
-    if(validator(input[0], input[1])){
+    if(integerValidator(input[0], input[1])){
         if(input[0] > input[1]) {
             result = '>';
         }

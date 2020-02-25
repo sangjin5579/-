@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 let result = '';
 
-function validator(num) {
+function integerValidator(num) {
     return (num >= 0 
          && num <= 100
          && !isNaN(num))
@@ -14,7 +14,7 @@ function validator(num) {
 }
 
 rl.on('line', data => {
-    if(validator(parseInt(data))){
+    if(integerValidator(parseInt(data))){
         if   (data>=90 && data<=100) result = 'A';
         else if(data>=80 && data<90) result = 'B';
         else if(data>=70 && data<80) result = 'C';
