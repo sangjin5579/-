@@ -13,8 +13,6 @@ function validator(num1, num2) {
          && num2 <=  10000
          && !isNaN(num1)
          && !isNaN(num2))
-         && num1
-         && num2
          ? true : false;
 }
 
