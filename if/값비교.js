@@ -1,3 +1,4 @@
+//1330
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
@@ -20,6 +21,7 @@ rl.on('line', line => {
     const input = [];
     input[0] = parseInt(line.split(' ')[0]);
     input[1] = parseInt(line.split(' ')[1]);
+
     if(integerValidator(input[0], input[1])){
         if(input[0] > input[1]) {
             result = '>';
