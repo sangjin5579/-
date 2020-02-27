@@ -55,8 +55,33 @@ readline 공식문서(https://nodejs.org/api/readline.html#readline_event_close)
 * 백준 알고리즘은 자동으로 close를 타면 안된다.
 * rl.prompt()로 어떠한 표현도 하면 안됨..
 
+* typeof 와 instanceof
+```
+# typeof은 다음중 하나의 String 반환값을 return하는 연산자.
+- undefined
+- boolean
+- number( NaN 포함 )
+- string
+- object( null, array 포함)
+- function
+
+# instanceof는 비교연산자로 "object 타입에 한정하여 비교"하며, boolean값을 반환한다.
+- {} instanceof Object //true
+- [] instanceof Array //true 
+```
 * 할당연산자
 
 # if
 * 조건의 경우 최대한 큰 범주에서 필터링한 값을 처리하도록 하자.
 * 배수 관련 문제는 모두 if와 몫 나머지를 응용한 문제.
+
+# for
+* break와 continue에 대하여
+```
+switch문이나 반복문을 제어할 수 있는 문법
+continue : 해당코드를 만나면 다음로직을 수행하지 않고 다시 시작점으로 돌아가 순회를 시작한다.
+break : 해당코드가 있는 지점에서 종료하고 블록을 벗어난다.(scope: block)
+return : 함수 실행을 종료하고, 함수를 벗어난다. break와 비슷하지만 벗어나는 스코프 범위가 다르다.(scope: function)
+```
+* for of
+* for in
