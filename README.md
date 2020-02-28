@@ -85,3 +85,7 @@ return : 함수 실행을 종료하고, 함수를 벗어난다. break와 비슷�
 ```
 * for of
 * for in
+
+
+# node
+process.exit() : 호출하거나 이벤트루프가 더이상 수행할 로직이 없을 때 수행한다.

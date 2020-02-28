@@ -30,7 +30,6 @@ rl.on('line', data => {
     if(lineNum === 1) {
         if(validator(parseInt(data))) {
             caseNum = parseInt(data);
-            rl.setPrompt('');
             rl.prompt();
         }else console.log('테스트 케이스 수를 입력해주세요.');
     } else {
