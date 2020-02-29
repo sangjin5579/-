@@ -58,39 +58,97 @@
 
 
 
+// const NS_PER_SEC = 1e9;
+// const MS_PER_NS = 1e-6;
+// const S_PER_NS = 1e-9;
+// const time = process.hrtime();
+// //로직
+// const diff = process.hrtime(time);
+// console.log(`Benchmark took ${diff[0] * NS_PER_SEC + diff[1]} NS`);
+// console.log(`Benchmark took ${ (diff[0] * NS_PER_SEC + diff[1])  * MS_PER_NS } MS`);
+// console.log(`Benchmark took ${ (diff[0] * NS_PER_SEC + diff[1])  * S_PER_NS } S`);
 
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+
+let lineNum = 0;
+let caseNum = 0;
+let caseArray = [];
+
+process.stdin.on('data', function (data) {
+    lineNum++;
+    if(lineNum === 1) {
+        // if(validator(parseInt(data))) {
+            caseNum = parseInt(data);
+            // rl.prompt();
+        // }else console.log('최대 테스트 케이스 개수는 1,000,000개 입니다.');
+    } else {
+        console.log(parseInt(data.split(' ')[0]) + parseInt(data.split(' ')[1]))
+        //const inputCase = [];
+        //inputCase[0] = parseInt(data.split(' ')[0]);
+        //inputCase[1] = parseInt(data.split(' ')[1]);
+        // if(validator(inputCase)) {
+            //caseArray.push(inputCase);
+        // }else console.log('입력값은 공백으로 구분하며, 1이상 1000이하의 두 정수를 입력해주세요.');
+
+        // (lineNum === caseNum+1) ? process.kill(process.pid,'SIGINT') : process.stdin.resume()
+        // process.stdin.end();
+    }
+});
+
+// process.stdin.on('end', function(){
+//     for(let i=0;i<caseArray.length;i++){
+//         // process.stdout.write(`${caseArray[i][0] + caseArray[i][1]}\n`);
+//         console.log(caseArray[i][0] + caseArray[i][1]);
+//     }
+//     process.exit(0);
+// })
+
+
+
+
+
+
+
+// process.stdin.resume();
 // process.stdin.setEncoding('utf8');
 
-// process.on('beforeExit', (code) => {
-//     console.log('Process beforeExit event with code: ', code);
-//   });
-  
-//   process.on('exit', (code) => {
-//     console.log('Process exit event with code: ', code);
-//   });
-  
-//   console.log('This message is displayed first.');
-  
-// process.stdin.on('readable', () => {
-//   let chunk;
-//   // Use a loop to make sure we read all available data.
-//   while ((chunk = process.stdin.read()) !== null) {
-//     process.stdout.write(`data: ${chunk}`);
-//   }
-//     process.stdin.end();  
+// let lineNum = 0;
+// let caseNum = 0;
+// let caseArray = [];
+
+// process.stdin.on('data', function (data) {
+//     lineNum++;
+//     // console.log(data)
+//     if(lineNum === 1) {
+//         caseNum = parseInt(data);
+//         for(let i=1;i<=caseNum;i++){
+//             const inputCase = [];
+//             inputCase[0] = i
+//             inputCase[1] = i
+//             caseArray.push(inputCase);
+//         }
+//         process.stdin.end()
+//         // process.kill(process.pid,'SIGINT')
+//     } else {
+
+//         // (lineNum === caseNum+1) ? process.kill(process.pid,'SIGINT') : process.stdin.resume()
+//     }
 // });
+// process.stdin.on('end', function(){
+//     for(let i=0;i<caseArray.length;i++){
+//         // process.stdout.write(`${caseArray[i][0] + caseArray[i][1]}\n`);
+//         console.log(caseArray[i][0] + caseArray[i][1]);
+//     }
+//     process.exit(0);
+// })
 
-// process.stdin.on('end', () => {
-//     console.log("end이벤트 발생")
-//   process.stdout.write('end');
+// process.on('SIGINT', function(){
+//     // process.stdout.write(`${inputCase}`)
+//     //console.log(caseArray)
+//     for(let i=0;i<caseArray.length;i++){
+//         // process.stdout.write(`${caseArray[i][0] + caseArray[i][1]}\n`);
+//         console.log(caseArray[i][0] + caseArray[i][1]);
+//     }
+//     process.exit(0);
 // });
-
-// const startUsage = process.cpuUsage();
-// // { user: 38579, system: 6986 }
-
-// // spin the CPU for 500 milliseconds
-// const now = Date.now();
-// while (Date.now() - now < 500);
-
-// console.log(process.cpuUsage(startUsage));
-// { user: 514883, system: 11226 }
