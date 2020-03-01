@@ -1,3 +1,6 @@
+# 입출력은 file system을 이용하며, readFile시 stream이 항상 열려있는 상태이므로 따로 열어주지 않아도 된다.
+# 백준의 경우 EOF를 자동처리 해주므로 따로 input stream을 닫지 않아도 된다.
+# EOF에 도달했을 때 출력되도록 한다.
 ** node.js가 해당 운영체제에 설치되었다는 전제로 작성하였습니다.**
 
 # 실행환경
@@ -38,9 +41,9 @@ rl.on('close', () => {
 
 readline 공식문서(https://nodejs.org/api/readline.html#readline_event_close)
 
-
 * 역슬래시, 따옴표 출력은 \\연속으로 써주면 된다.
 * 템플릿 리터럴문법을 사용한다면 개행문법을 사용하지 않아도 띄어쓰기나 줄바꿈 표현이 가능하다.
+* console.log는 많이 느리므로 마지막 한번만 사용하도록 하자.
 
 * 콘솔에서는 close가 동작하지 않는다(EOF에 걸리지 않음) 
 * 콘솔 종료를 해야 close가 동작하게된다.
@@ -71,6 +74,16 @@ readline 공식문서(https://nodejs.org/api/readline.html#readline_event_close)
 ```
 * 할당연산자
 
+* spread 연산자
+```
+#... : 열거 가능한 오브젝트를 하나씩 열거한다.
+let str = 'hello'; let spread = [...str]; 
+console.log(spread); // [ 'h', 'e', 'l', 'l', 'o' ]
+
+function test( a, b,...rest){ console.log(a,b,rest); } 
+test(...[1,2,3,4,5]); 
+// 1 2 [ 3, 4, 5 ] 
+```
 # if
 * 조건의 경우 최대한 큰 범주에서 필터링한 값을 처리하도록 하자.
 * 배수 관련 문제는 모두 if와 몫 나머지를 응용한 문제.
@@ -86,4 +99,45 @@ return : 함수 실행을 종료하고, 함수를 벗어난다. break와 비슷�
 * for of
 * for in
 
+# Array
+* 배열 중복제거
+```
+let values = [3, 1, 3, 5, 2, 4, 4, 4];
+let uniqueValues = [...new Set(values)];
+// uniqueValues is [3, 1, 5, 2, 4]
+```
 
+* filter를 이용한 배열 간편검색
+```
+let users = [
+  { id: 11, name: 'Adam', age: 23, group: 'editor' },
+  { id: 47, name: 'John', age: 28, group: 'admin' },
+  { id: 85, name: 'William', age: 34, group: 'editor' },
+  { id: 97, name: 'Oliver', age: 28, group: 'admin' }
+];
+let res = users.filter(it => new RegExp('oli', "i").test(it.name))
+```
+* 배열 요소중 , 데이터 비교로 boolean을 반환받을 수 있다.
+```
+let hasAdmin = users.some(user => user.group === 'admin');
+// true
+```
+* 배열안의 배열요소 모두 하나로 병합하기
+```
+let nested = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+let flat = [].concat.apply([], nested);
+```
+* reduce() 를 이용한 배열 누산작업
+```
+```
+* 배열요소중 특정 속성만을 모아서 새로운 배열로 만들기
+```
+let listOfUserGroups = [...new Set(users.map(it => it.group))];
+// listOfUserGroups is ['editor', 'admin'];
+```
+* 교칩합
+```
+let arrA = [1, 4, 3, 2];
+let arrB = [5, 2, 6, 7, 1];
+arrA.filter(it => arrB.includes(it)); // returns [1, 2]
+```
