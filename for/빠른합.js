@@ -16,7 +16,6 @@ for(let i=1;i<dataLeng;i++){
 console.log(result);
 
 
-
 // process.stdin은 실패(이유모름)
 // process.stdin.resume();
 // process.stdin.setEncoding('utf8');
