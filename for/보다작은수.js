@@ -1,27 +1,14 @@
-const [firstData, seq] = require('fs').readFileSync("/dev/stdin", "utf8").split('\n');
+//10871
+const input = require('fs').readFileSync("/dev/stdin", "utf8").split('\n');
 
-const n = parseInt(firstData.split(' ')[0]);
-const x = parseInt(firstData.split(' ')[1]);
-let result = '';
+const n = parseInt(input[0].split(' ')[0]);
+const x = parseInt(input[0].split(' ')[1]);
+let arr = input[1].split(' ');
+let arr2 = [];
 
 for(let i=0;i<n;i++){
-    let data = parseInt(seq.split(' ')[i]);
-    result += (data < x) ? data + ' ' : '';
+    arr[i] = parseInt(arr[i]);
+    if(arr[i]<x) arr2.push(arr[i]);
 }
 
-console.log(result);
-
-
-
-// const data = require('fs').readFileSync("/dev/stdin", "utf8").trim().split('\n');
-
-// const n = parseInt(data[0].split(' ')[0]);
-// const x = parseInt(data[0].split(' ')[1]);
-// let result = '';
-
-// for(let i=0;i<n;i++){
-//     let data = parseInt(seq.split(' ')[i]);
-//     result += (data < x) ? data + ' ' : '';
-// }
-
-// console.log(data)
+console.log(arr2.join(' '));
