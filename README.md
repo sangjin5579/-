@@ -1,46 +1,4 @@
-# 입출력은 file system을 이용하며, readFile시 stream이 항상 열려있는 상태이므로 따로 열어주지 않아도 된다.
-# 백준의 경우 EOF를 자동처리 해주므로 따로 input stream을 닫지 않아도 된다.
-# EOF에 도달했을 때 출력되도록 한다.
-# 파일 입출력은 동기처리이다.
-** node.js가 해당 운영체제에 설치되었다는 전제로 작성하였습니다.**
 
-# 실행환경
-**0. 작업할 디렉토리를 생성하고 커맨드라인을 열어 해당 디렉토리로 이동합니다.**
-**1. 라이브러리 모듈을 사용하므로 npm을 이용하여 다음 커맨드라인을 작성합니다.**
-```
-//package.json파일이 생성됩니다.
-npm init
-```
-
-**2. npm을 이용하여 readline모듈을 설치합니다.**
-```
-npm install readline
-```
-
-**3. readline모듈은 I/O인터페이스를 제공하는 라이브러리 모듈입니다. 
-사용방법은 다음과 같습니다.**
-```
-//readline모듈 주입
-const readline = require('readline');
-//읽고 쓸 수 있는 input, output stream을 각각 하나씩 생성해줍니다.
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
-//on이벤트 리스너를 설정하여 readline에서 제공하는 특정 이벤트를 등록하고, 필요시 콜백함수를 사용할 수 있습니다.
-rl.on('line', line => {
-	//line 이벤트는 input stream을 통하여 데이터를 입력후 'enter'나 return을 받게되면 실행되는 이벤트입니다.
-	//이벤트 발생 시 콜백함수를 실행하며, 인자로 입력받은 line데이터를 받아옵니다.
-})
-rl.on('close', () => {
-	//close 이벤트는 rl.close()를 실행시 실행되는 이벤트입니다.
-	//이벤트 발생 시 I/O인터페이스가 종료됩니다.
-	process.exit()
-})
-```
-
-readline 공식문서(https://nodejs.org/api/readline.html#readline_event_close)
 
 * 역슬래시, 따옴표 출력은 \\연속으로 써주면 된다.
 * 템플릿 리터럴문법을 사용한다면 개행문법을 사용하지 않아도 띄어쓰기나 줄바꿈 표현이 가능하다.
