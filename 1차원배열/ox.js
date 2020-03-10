@@ -15,5 +15,5 @@ for(let i=0;i<n;i++){
         }else arrs[i][j] = 0;
         result[i] += arrs[i][j];
     }
-    console.log(result[i]);  
+    console.log(result[i]);    
 }
