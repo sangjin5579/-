@@ -1,4 +1,4 @@
-//풀이x
+//8958
 const [n, ...cases] = require('fs').readFileSync(0, 'utf8').trim().split('\n');
 
 let arrs = [];

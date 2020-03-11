@@ -20,9 +20,9 @@
 
 
 //평균은 넘겠지 풀이x
-const [n, ...cases] = require('fs').readFileSync(0,'utf8').trim().split('\n');
+const [c, ...cases] = require('fs').readFileSync(0,'utf8').trim().split('\n');
 
-for(let i=0;i<+n;i++){
+for(let i=0;i<c;i++){
     let sn = +cases[i].split(' ')[0];
     let sum = 0;
     let overAvgN = 0;
