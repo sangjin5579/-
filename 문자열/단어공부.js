@@ -29,5 +29,5 @@
 const input = require('fs').readFileSync(0,'utf8').trim().split(' ')
 if(input[0] == '') {
     console.log(0)
-}else console.log(input.length);  
+}else console.log(input.length);    
 
