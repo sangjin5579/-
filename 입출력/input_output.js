@@ -23,7 +23,7 @@ rl.on('line', function (line) {
 }).on('close', function () {
     console.log(input[0] + input[1]);
     console.log(input[0] - input[1]);
-    console.log(input[0] * input[1]);
+    console.log(input[0] * input[1]);  
     console.log(parseInt(input[0] / input[1]));
     console.log(input[0] % input[1]);
     process.exit();
