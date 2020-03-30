@@ -8,7 +8,7 @@ if(N === 1) console.log(cycle);
 while(N !== 1){ 	
 	cycle++
     endPoint += 6*(cycle-1);
-    	
+      	
     if(N<=endPoint){
         console.log(cycle);
         break
