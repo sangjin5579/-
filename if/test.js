@@ -24,7 +24,7 @@
 function solution(name) {
     var answer = 0;
     let arr = [];  
-    let direct = "right";
+    let direct = "right";  
     
     for(let i=0,leng=name.length;i<leng;i++){
         if(name[i] === 'A'){
