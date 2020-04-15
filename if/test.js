@@ -21,7 +21,7 @@
 // console.log(solution(n,lost,reserve));
 
 
-function solution(name) {
+function solution(name) {  
     var answer = 0;
     let arr = [];  
     let direct = "right";  
