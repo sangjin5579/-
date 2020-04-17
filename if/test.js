@@ -96,54 +96,50 @@
 
 
 
-// function solution(number, k) {
-//     var answer = '';
-//     let arr = [...number];
-//     let test = [];
-//     arr = arr.sort(function(a,b){
-//         return b - a;
-//     })
-//     for(let i=0;i<k;i++){
-//         test.push(arr.pop());
-//     }
-//     for(let i=0;i<test.length;i++){
-//         arr.splice
-//         arr.splice()
-//     }
-//     answer = arr.join('');
-//     return answer;
-// }
+function solution(number, k) {
+    var answer = [];
+    let arr = [...number];
+    let sp = 0;
 
+    // for(let i=0;i<arr.length;i++){
+    //     arr[i] = +arr[i]
+    // }
+let cnt = 2;
+    while(cnt > 0){
+        let max = 0;
 
-function solution(people, limit) {
-    var answer = 0;
-    let cnt = 0;
-
-    people.sort(function(a,b){
-        return b-a
-    })
-
-    while(true){
-        if(people.length === 0) break;
-        cnt++;
-
-        let max = people[0]
-        people.splice(0,1);
-        console.log(max);
-        console.log(people);
-
-        for(let j=0;j<people.length;j++){
-            if(max + people[j] <= limit){
-                people.splice(people.indexOf(people[j]),1);
-                console.log('결과',people)
-                continue;
+        for(let i=sp;i<=sp+k;i++){
+            if(max <= arr[i]){
+                max = arr[i];
             }
         }
+        console.log(max);
+        for(let i=sp;i<arr.indexOf(max);i++){
+            arr.splice(i,1)
+            answer.push(arr.splice(i,1)[0]);
+            --k;
+        }
+        console.log(k)
+        console.log(arr)
+        sp = arr.indexOf(max) + 1;
+        console.log(sp)
+        --cnt;
     }
     
-    answer = cnt;
     
+    // let test = [];
+    // arr = arr.sort(function(a,b){
+    //     return b - a;
+    // })
+    // for(let i=0;i<k;i++){
+    //     test.push(arr.pop());
+    // }
+    // for(let i=0;i<test.length;i++){
+    //     arr.splice
+    //     arr.splice()
+    // }
+    // answer = arr.join('');
     return answer;
 }
 
-console.log(solution([70, 50, 50, 50],100))
+console.log(solution("1231234", 3));
