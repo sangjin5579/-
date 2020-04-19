@@ -95,33 +95,33 @@
 // console.log(solution('JEROEN'));
 
 
-
+//1231234, 3
 function solution(number, k) {
-    var answer = [];
+    var answer = [...number];
     let arr = [...number];
     let sp = 0;
 
-    // for(let i=0;i<arr.length;i++){
-    //     arr[i] = +arr[i]
-    // }
 let cnt = 2;
     while(cnt > 0){
         let max = 0;
 
+        console.log(answer)
         for(let i=sp;i<=sp+k;i++){
-            if(max <= arr[i]){
-                max = arr[i];
-            }
+            if(max <= arr[i]) max = arr[i];
         }
-        console.log(max);
-        for(let i=sp;i<arr.indexOf(max);i++){
-            arr.splice(i,1)
-            answer.push(arr.splice(i,1)[0]);
-            --k;
-        }
-        console.log(k)
-        console.log(arr)
+        console.log(max)
+        answer.splice(sp,arr.indexOf(max));
+        k -= arr.indexOf(max)
+        // let num = arr.indexOf(max);
+        // for(let i=sp;i<num;i++){
+        //     console.log(i)
+        //     answer.splice(i,1);
+        //     console.log(answer)
+        //     --k;
+        // }
+
         sp = arr.indexOf(max) + 1;
+        console.log(k)
         console.log(sp)
         --cnt;
     }
