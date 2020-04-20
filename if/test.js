@@ -1,7 +1,7 @@
 // const lost = [2,3,4];
 // const n =7;
 // const reserve = [1,2,3,6];
-
+// 
 // function solution(n, lost, reserve) {
 //     var answer = n;
 //     for(let i=0,leng=lost.length;i<leng;i++){
@@ -73,7 +73,7 @@
 //                     answer += 26-move;
 //                 }else{
 //                     answer += move;
-//                 }   
+//                 }     
 //             }
 //         }else{
 //             for(let i=name.length-1;i>0;--i){
@@ -96,50 +96,52 @@
 
 
 //1231234, 3
-function solution(number, k) {
-    var answer = [...number];
-    let arr = [...number];
-    let sp = 0;
+// function solution(number, k) {
+//     var answer = [...number];
+//     let arr = [...number];
+//     let sp = 0;
 
-let cnt = 2;
-    while(cnt > 0){
-        let max = 0;
+// let cnt = 2;
+//     while(cnt > 0){
+//         let max = 0;
 
-        console.log(answer)
-        for(let i=sp;i<=sp+k;i++){
-            if(max <= arr[i]) max = arr[i];
-        }
-        console.log(max)
-        answer.splice(sp,arr.indexOf(max));
-        k -= arr.indexOf(max)
-        // let num = arr.indexOf(max);
-        // for(let i=sp;i<num;i++){
-        //     console.log(i)
-        //     answer.splice(i,1);
-        //     console.log(answer)
-        //     --k;
-        // }
+//         console.log(answer)
+//         for(let i=sp;i<=sp+k;i++){
+//             if(max <= arr[i]) max = arr[i];
+//         }
+//         console.log(max)
+//         answer.splice(sp,arr.indexOf(max));
+//         k -= arr.indexOf(max)
+//         // let num = arr.indexOf(max);
+//         // for(let i=sp;i<num;i++){
+//         //     console.log(i)
+//         //     answer.splice(i,1);
+//         //     console.log(answer)
+//         //     --k;
+//         // }
 
-        sp = arr.indexOf(max) + 1;
-        console.log(k)
-        console.log(sp)
-        --cnt;
-    }
+//         sp = arr.indexOf(max) + 1;
+//         console.log(k)
+//         console.log(sp)
+//         --cnt;
+//     }
     
     
-    // let test = [];
-    // arr = arr.sort(function(a,b){
-    //     return b - a;
-    // })
-    // for(let i=0;i<k;i++){
-    //     test.push(arr.pop());
-    // }
-    // for(let i=0;i<test.length;i++){
-    //     arr.splice
-    //     arr.splice()
-    // }
-    // answer = arr.join('');
-    return answer;
-}
+//     // let test = [];
+//     // arr = arr.sort(function(a,b){
+//     //     return b - a;
+//     // })
+//     // for(let i=0;i<k;i++){
+//     //     test.push(arr.pop());
+//     // }
+//     // for(let i=0;i<test.length;i++){
+//     //     arr.splice
+//     //     arr.splice()
+//     // }
+//     // answer = arr.join('');
+//     return answer;
+// }
 
-console.log(solution("1231234", 3));
+// console.log(solution("1231234", 3));
+
+
