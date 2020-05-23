@@ -10,19 +10,25 @@ let read = readLine.createInterface({
     output: process.stdout
 });
 
-// let ob = {
-//     i:1,
-//     com:2
-// }
-// read.setPrompt('>');
-// read.prompt();
-read.question("야구게임 하러오셨쎄요?\n(1)시작하기\n(2)전적보기\n",(data)=>{
-    if(data === '1'){
-        startGame();    
-    }else if(data === '2'){
-        console.log('개발중입니다...');
-    }
-})
+callMenu();
+
+function callMenu(){
+    read.question("야구게임 하러오셨쎄요?\n(1)시작하기\n(2)전적보기\n",(data)=>{
+        if(data === '1'){
+            startGame();    
+        }else if(data === '2'){
+            console.log('개발중입니다...');
+            callMenu();
+        }
+    });
+}
+
+function initAns(leng){
+    // 컴퓨터 방어시 후보군 생성
+    let cases = makeCase(leng);
+    let random = Math.floor(Math.random()*(cases.length));
+    return cases[random];
+}
 
 function makeCase(caseLeng){
     let useIndex = [];
@@ -53,14 +59,14 @@ function makeCase(caseLeng){
 
 function startGame(){
     read.question("(1)내가 맞추기\n(2)컴퓨터가 맞추기\n",(data)=>{
-        // 컴퓨터 방어시 후보군 생성
-        let cases = makeCase(3);
-        let random = Math.floor(Math.random()*(cases.length));
-        let answer = cases[random];
-        if(data === '1'){        
-            attackCom(answer);  
+        if(data === '1'){
+            read.question("(1)맞힐 공의 수를 입력해주세요.\n",(leng)=>{
+                attackCom(initAns(+leng));
+            })
         }else if(data === '2'){
-            defenceCom(answer);
+            console.log('개발중입니다...');
+            startGame();
+            //defenceCom(initAns(3));
         }
     })
 }
@@ -91,7 +97,7 @@ function attackCom(answer){
                         resetGame(1);
                     }else{
                         //처음으로가기
-                        console.log('개발중입니다...');
+                        callMenu();
                     }
                 });
             }else{
@@ -129,8 +135,7 @@ function defenceCom(initAnswer){
                     if(data === '1'){
                         resetGame(2);
                     }else{
-                        //처음으로가기
-                        console.log('개발중입니다...');
+                        callMenu();
                     }
                 });
             }else{
@@ -142,18 +147,20 @@ function defenceCom(initAnswer){
         })
     }    
 }
-let data = []
-function reAnswer(prevAtt, strike, ball, out){
-    //prevAtt = [1,2,3]
-    let nextAtt = '';
-    
-    
+// let data = []
+// function reAnswer(prevAtt, strike, ball, out){
+//     //prevAtt = [1,2,3]
+//     let nextAtt = '';
+//     data.push([prevAtt, strike, ball, out]);
 
-    data.push([prevAtt, strike, ball, out]);
-
-    return nextAtt;
-}
+//     return nextAtt;
+// }
 
 function resetGame(attOrDefNum){
+    if(attOrDefNum === 1){
+        attackCom(initAns(3));
+    }else if(attOrDefNum === 2){
+        defenceCom(initAns(3));
+    }
 
 }
