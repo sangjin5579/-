@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/오목.css">  
+</head>
+<body>
+    <div>
+        <label for="table">바둑판 크기: </label>
+        <input type="number" id="size" value="10" onchange="control('initTable')">
+    </div>
+    <div id="main">
+        <button id="startBtn" onclick="control('startGame')">게임시작!</button>
+    </div>
+    <div id="table">
+    </div>
+</body>
+<!-- 무슨의미지 -->
+<script src='/socket.io/socket.io.js'></script>
+<script src='/js/index.js'></script>
+</html>
